@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-plugins")
     repositories {
         google {
             content {
@@ -16,9 +17,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "MultiModuleBuildLogic"
 include(":app")
  
