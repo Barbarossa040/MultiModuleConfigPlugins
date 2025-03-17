@@ -31,6 +31,22 @@ gradlePlugin {
                 id = "barbarossa040.application"
                 implementationClass = "plugins.AppConfigurationPlugin"
             }
+            register("androidLib") {
+                id = "barbarossa040.library"
+                implementationClass = "plugins.LibConfigurationPlugin"
+            }
+            register("app-compose") {
+                id = "barbarossa040.appCompose"
+                implementationClass = "plugins.AppComposeConfigurationPlugin"
+            }
+            register("library-compose") {
+                id = "barbarossa040.libraryCompose"
+                implementationClass = "plugins.LibComposeConfigurationPlugin"
+            }
+            register("hiltConfig") {
+                id = "barbarossa040.hiltConfig"
+                implementationClass = "plugins.HiltConfigurationPlugin"
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 agp = "8.9.0"
 kotlin = "2.0.21"
 kotlin-jvm = "2.0.21"
-kotlin-gradle = "1.9.21"
+kotlin-gradle = "2.1.10"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -11,8 +11,21 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2025.03.00"
 hilt = "2.55"
-ksp = "1.9.22-1.0.18"
+androidxHiltNavigationCompose = "1.2.0"
+ksp = "2.0.21-1.0.27"
 dependencyGuard = "0.5.0"
+accompanist = "0.34.0"
+composeNavigation = "2.8.9"
+composePaging = "3.3.6"
+compose-compiler = "1.5.15"
+retrofit = "2.11.0"
+retrofitKotlinxSerializationJson = "1.0.0"
+kotlinxDatetime = "0.5.0"
+javaxInject = "1"
+coil = "2.5.0"
+kotlinxSerializationJson = "1.8.0"
+accompanistCoil = "0.15.0"
+okhttp = "4.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -22,6 +35,8 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -32,6 +47,42 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-gradle" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
+accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
+compose-paging = { group = "androidx.paging", name = "paging-compose", version.ref = "composePaging" }
+
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofit" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
+
+accompanist-coil = { module = "com.google.accompanist:accompanist-coil", version.ref = "accompanistCoil" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
+coil-video = { group = "io.coil-kt", name = "coil-video", version.ref = "coil" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
+
+[bundles]
+hilt = [
+    "hilt-android",
+    "hilt-android-testing",
+    "hilt-compiler",
+    "hilt-navigation-compose"
+]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -47,10 +98,10 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 
 # Build logic dependencies
 multimodule-application = { id = "barbarossa040.application", version = "unspecified" }
-multimodule-hilt = { id = "appdevcon.hilt", version = "unspecified" }
-multimodule-android-library = { id = "appdevcon.android.library", version = "unspecified" }
-multimodule-compose= { id = "appdevcon.compose", version = "unspecified" }
-multimodule-lib-compose= { id = "appdevcon.lib.compose", version = "unspecified" }
-multimodule-android-feature = { id = "appdevcon.android.feature", version = "unspecified" }
+multimodule-hilt = { id = "barbarossa040.hiltConfig", version = "unspecified" }
+multimodule-library = { id = "barbarossa040.library", version = "unspecified" }
+multimodule-compose= { id = "barbarossa040.appCompose", version = "unspecified" }
+multimodule-library-compose= { id = "barbarossa040.libraryCompose", version = "unspecified" }
+#multimodule-android-feature = { id = "appdevcon.android.feature", version = "unspecified" }
 
 

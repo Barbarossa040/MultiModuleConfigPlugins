@@ -24,4 +24,7 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "MultiModuleBuildLogic"
 include(":app")
- 
+include(":core:common")
+include(":core:data")
+include(":core:domain")
+include(":core:model")

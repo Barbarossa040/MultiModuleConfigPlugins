@@ -24,6 +24,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-plugins" />
             <option value="$PROJECT_DIR$/build-plugins/configuration" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/data" />
+            <option value="$PROJECT_DIR$/core/domain" />
+            <option value="$PROJECT_DIR$/core/model" />
           </set>
         </option>
       </GradleProjectSettings>
