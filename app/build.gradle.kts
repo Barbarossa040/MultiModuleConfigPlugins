@@ -1,9 +1,8 @@
 plugins {
-    alias(libs.plugins.kotlin.compose)
+//    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.multimodule.application)
-//    alias(libs.plugins.kotlin.android)
-//    alias(libs.plugins.android.application)
-//    alias(libs.plugins.dependencyGuard)
+    alias(libs.plugins.multimodule.compose)
+    alias(libs.plugins.multimodule.hilt)
 }
 
 android {
@@ -25,29 +24,31 @@ android {
 //        jvmTarget = "11"
 //    }
     // In compose feature
-    buildFeatures {
-        compose = true
-    }
+//    buildFeatures {
+//        compose = true
+//    }
 }
 
 dependencyGuard {
-    configuration("releaseRuntimeClasspath")
+    configuration("releaseRuntimeClasspath") {
+        allowedFilter = {
+            // Disallow dependencies with a name containing "junit"
+            !it.contains("junit")
+        }
+    }
+    configuration("debugRuntimeClasspath") {
+        tree = true
+        allowedFilter = {
+            // Disallow dependencies with a name containing "junit"
+            !it.contains("junit")
+        }
+    }
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(projects.core.ui)
+    implementation(projects.core.design)
+
+    testImplementation(projects.core.testing)
+    androidTestImplementation(projects.core.testing)
 }
