@@ -26,5 +26,8 @@ rootProject.name = "MultiModuleBuildLogic"
 include(":app")
 include(":core:common")
 include(":core:data")
+include(":core:design")
 include(":core:domain")
 include(":core:model")
+include(":core:testing")
+include(":core:ui")
