@@ -7,9 +7,16 @@ import org.gradle.kotlin.dsl.dependencies
 internal fun Project.configureAndroidCompose(
     extension: CommonExtension<*, *, *, *, *, *>
 ) {
+    with(pluginManager) {
+        // Compose compiler is mandatory for all modules using Compose
+        applyPluginFromAlias("kotlin-compose")
+    }
+
     extension.apply {
         val libs = versionCatalog()
+
         buildFeatures.compose = true
+
         composeOptions.kotlinCompilerExtensionVersion =
             libs.findVersionString("compose-compiler")
 

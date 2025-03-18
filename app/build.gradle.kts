@@ -37,7 +37,7 @@ dependencyGuard {
         }
     }
     configuration("debugRuntimeClasspath") {
-        tree = true
+//        tree = true
         allowedFilter = {
             // Disallow dependencies with a name containing "junit"
             !it.contains("junit")
