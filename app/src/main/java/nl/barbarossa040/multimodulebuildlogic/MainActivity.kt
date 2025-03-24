@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        Greeting("Android")
+                        Greeting("Mobile Chapter")
                     }
                 }
             }
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Hi $name!",
         modifier = modifier,
         fontSize = 40.sp,
         fontWeight = FontWeight.Bold,
